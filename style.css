@@ -1,0 +1,35 @@
+
+body
+{
+    background-color: #FFD89C;
+}
+
+h2
+{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #A2CDB0;
+    color: #85A389;
+    font-size: 60px;
+    font-weight: bold;
+    width: 720px;
+    border-radius: 20px;
+    border: #85A389 7px solid;
+}
+
+canvas
+{
+    border: #85A389 7px solid;
+    border-radius: 20px;
+}
+
+#Start
+{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #A2CDB0;
+    color: #85A389;
+    font-size: 20px;
+    font-weight: bold;
+    width: 720px;
+    border-radius: 20px;
+    border: #85A389 7px solid;
+}
