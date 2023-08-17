@@ -4,18 +4,34 @@ objects = [];
 function preload()
 {
     video = createVideo('video.mp4');
-    video.hide();
+    // 
 }
 
 function setup()
 {
+    
     canvas = createCanvas(721, 400);
-    canvas.position(280, 130);
+    canvas.center();
+    video.hide();
 }
 
+function start()
+{
+    
+    objectDetector = ml5.objectDetector('cocossd' , modelLoaded);
+    document.getElementById("status").innerHTML = "Status : Detecting Objects";
+}
+function modelLoaded() {
+    console.log("Model Loaded!")
+    status = true;
+    video.loop();
+    video.speed(1);
+    video.volume(0);
+  }
 function draw()
 {
     image(video, 0, 0, 721, 400);
+    if(status != "")
     {
         objectDetector.detect(video, gotResult);
         for (i = 0; i < objects.length; i++)
@@ -33,18 +49,6 @@ function draw()
     }
 }
 
-function start()
-{
-    objectDetector = ml5.objectDetector('cocossd' , modelLoaded);
-}
-
-function modelLoaded()
-{
-    console.log("Ready!");
-    video.loop();
-    video.speed(1);
-    video.volume(1);
-}
 
 function gotResult(error, results) 
 {
